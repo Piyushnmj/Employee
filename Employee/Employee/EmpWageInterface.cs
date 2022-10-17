@@ -28,6 +28,6 @@ public class CompanyEmpWage
 
     public string toString()
     {
-        return " Total Emp Wage for Company " + this.companyname + " is: " + this.totalEmpWage;
+        return "Total Emp Wage for Company " + this.companyname + " is: " + this.totalEmpWage;
     }
 }
