@@ -2,12 +2,10 @@
 {
     static void Main(string[] args)
     {
-        EmpWageBuilderObject Microsoft = new EmpWageBuilderObject("Microsoft", 100, 20, 100);
-        EmpWageBuilderObject Google = new EmpWageBuilderObject("Google", 200, 30, 150);
-        Microsoft.computeEmpWage();
-        Console.WriteLine(Microsoft.toString());
-        Google.computeEmpWage();
-        Console.WriteLine(Google.toString());
+        EmpWageBuilderArray empWageBuilder = new EmpWageBuilderArray();
+        empWageBuilder.addCompanyEmpWage("Microsoft", 100, 20, 100);
+        empWageBuilder.addCompanyEmpWage("Google", 200, 30, 150);
+        empWageBuilder.computeEmpWage();
         Console.ReadLine();
     }
 }
