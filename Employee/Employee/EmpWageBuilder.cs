@@ -59,9 +59,4 @@
     {
         return this.companyToEmpWageMap[companyname].totalEmpWage;
     }
-
-    void IComputeEmpWage.getTotalWage(string companyname)
-    {
-        throw new NotImplementedException();
-    }
 }

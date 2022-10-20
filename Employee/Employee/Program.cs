@@ -1,5 +1,4 @@
-﻿
-//UC12: List of multiple companies to manage Employee Wage.
+﻿//UC12: List of multiple companies to manage Employee Wage.
 //UC13: Daily Wage along with Total Wage
 //UC14: Ability to get the Total Wage when queried by company.
 class Program
@@ -14,5 +13,5 @@ class Program
         Console.WriteLine("Total wage for Microsoft " + empWageBuilder.getTotalWage("Microsoft"));
         Console.WriteLine("Total wage for Google " + empWageBuilder.getTotalWage("Google"));
         Console.ReadLine();
-    }  
+    }
 }

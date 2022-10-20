@@ -2,7 +2,7 @@
 {
     public void addCompanyEmpWage(string companyname, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth);
     public void computeEmpWage();
-    public void getTotalWage(string companyname);
+    public int getTotalWage(string companyname);
 }
 public class CompanyEmpWage
 {
