@@ -1,30 +1,28 @@
-﻿public class EmpWageBuilder : IComputeEmpWage
+﻿public class EmpWageBuilderArray
 {
     public const int IS_PART_TIME = 1;
     public const int IS_FULL_TIME = 2;
 
-    private LinkedList<CompanyEmpWage> companyEmpWageList;
-    private Dictionary<string, CompanyEmpWage> companyToEmpWageMap;
+    private int numOfCompany = 0;
+    private CompanyEmpWage[] companyEmpWageArray;
 
-    public EmpWageBuilder()
+    public EmpWageBuilderArray()
     {
-        this.companyEmpWageList = new LinkedList<CompanyEmpWage>();
-        this.companyToEmpWageMap = new Dictionary<string, CompanyEmpWage>();
+        this.companyEmpWageArray = new CompanyEmpWage[5];
     }
 
     public void addCompanyEmpWage(string companyname, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
     {
-        CompanyEmpWage companyEmpWage = new CompanyEmpWage(companyname, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
-        this.companyEmpWageList.AddLast(companyEmpWage);
-        this.companyToEmpWageMap.Add(companyname, companyEmpWage);
+        companyEmpWageArray[this.numOfCompany] = new CompanyEmpWage(companyname, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
+        numOfCompany++;
     }
 
     public void computeEmpWage()
     {
-        foreach (CompanyEmpWage companyEmpWage in this.companyEmpWageList)
+        for (int i = 0; i < numOfCompany; i++)
         {
-            companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
-            Console.WriteLine(companyEmpWage.toString());
+            companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(this.companyEmpWageArray[i]));
+            Console.WriteLine(this.companyEmpWageArray[i].toString());
         }
     }
 
@@ -53,15 +51,5 @@
             Console.WriteLine("Day#:" + totalWorkingDays + "Emp Hrs: " + empHrs);
         }
         return totalEmpHrs * companyEmpWage.empRatePerHour;
-    }
-
-    public int getTotalWage(string companyname)
-    {
-        return this.companyToEmpWageMap[companyname].totalEmpWage;
-    }
-
-    void IComputeEmpWage.getTotalWage(string companyname)
-    {
-        throw new NotImplementedException();
     }
 }
